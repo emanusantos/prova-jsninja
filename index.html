@@ -5,31 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
     <title>TGL</title>
 </head>
 <body>
     <header>
-        <ul>
-            <li>
-                <h1>TGL</h1>
-                <h4>Home</h4>
-            </li>
-            <li>
-                <h4>Account</h4>
-                <h4>Log out</h4>
-            </li>
-        </ul>
+        <div class="ulWrapper">
+            <ul>
+                <li>
+                    <h1>TGL</h1>
+                    <h4>Home</h4>
+                </li>
+                <li>
+                    <h4>Account</h4>
+                    <h4>Log out</h4>
+                </li>
+            </ul>
+        </div>
     <header>
     <div class="mainContent">
         <div class="gameContent">
-            <h3>NEW BET FOR</h3>
+            <h3 class="newBet">NEW BET <span data-js="type"></span></h3>
+            <p><strong>Choose a game</strong></p>
+            <div class="buttonsArea" data-js="buttonsArea"></div>
+            <p><strong>Fill your bet</strong></p>
+            <div class="descriptionArea" data-js="descriptionArea"></div>
+            <div class="numbersArea" data-js="numbersArea"></div>
+            <div class="funcButtons">
+                <div class="gameButtons">
+                    <button class="gameButton1">Complete game</button>
+                    <button class="gameButton2">Clear game</button>
+                </div>
+                <div>
+                    <button class="cartBtn">Add to cart</button>
+                </div>
+            </div>
         </div>
         <div class="cartContent">
-
+            <h3>CART</h3>
+            <button class="saveCart"><i class="fas fa-shopping-cart"></i>Save</button>
         </div>
     </div>
-
-
+    <hr />
+    <div class="footer">
+        <p>Copyright 2021  Luby Software</p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

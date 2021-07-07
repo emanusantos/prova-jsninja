@@ -5,51 +5,202 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Helvetica, sans-serif;
     background-color: #F7F7F7;
+    color: #707070;
+}
+
+.ulWrapper {
+    border-bottom: 2px solid #EBEBEB;
 }
 
 
 ul {  
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 200px;
-    color: #707070;
     font-style: italic;
     font-weight: bold;
-    border-bottom: 2px solid #EBEBEB;
     padding: 10px;
+    margin: 0 140px;
 }
 
 ul li {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 48px;
 }
 
-ul li h1, ul li h4 {
-    margin-right: 40px;
-    cursor: pointer;
-}
 
 ul li h1 {
     font-size: 44px;
     border-radius: 6px;
 }
 
-hr {
-    color: #EBEBEB;
-}
-
 .mainContent {
     display: flex;
-    justify-content: space-around;
+    padding: 0 150px;
+    justify-content: space-evenly;
+    padding-top: 50px;
+}
+
+.gameContent {
+    width: 100%;
+    font-style: italic;
+    line-height: 20px;
+}
+
+.newBet {
+    font-size: 24px;
+    padding: 30px 0;
+}
+
+.gameContent p {
+    font-size: 17px;
+}
+
+.Quina, .Mega-Sena, .Lotofácil {
+    width: 113px;
+    height: 34px;
+    border-radius: 100px;
+    margin-right: 15px;
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Quina {
+    color: #F79C31;
+    border: 2px solid #F79C31;
+    background-color: #fff;
+}
+
+.Quina:active, .Quina:hover {
+    color: #fff;
+    background-color: #F79C31;
+}
+
+.Lotofácil {
+    color: #7F3992;
+    border: 2px solid #7F3992;
+    background-color: #fff;
+}
+
+.Lotofácil:active, .Lotofácil:hover {
+    color: #fff;
+    background-color: #7F3992;
+}
+
+.Mega-Sena {
+    color: #01AC66;
+    border: 2px solid #01AC66;
+    background-color: #fff;
+}
+
+.Mega-Sena:active, .Mega-Sena:hover {
+    color: #fff;
+    background-color: #01AC66;
+}
+
+.buttonsArea {
+    padding: 20px;
+}
+
+.descriptionArea {
+    margin-top: 5px;
+    max-width: 90%;
+}
+
+.numbersArea {
+    width: 95%;
+    margin: 20px 0;
+}
+
+.number {
+    width: 63px;
+    height: 65px;
+    background-color: #ADC0C4;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 6px;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
 }
 
 .cartContent {
     width: 317px;
     height: 484px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
     background-color: #fff;
     border-radius: 10px;
+    border: 2px solid #E2E2E2;
 }
+
+.cartContent h3 {
+    font-size: 24px;
+    font-style: italic;
+}
+
+.funcButtons {
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+}
+
+.gameButtons {
+    display: flex;
+    gap: 25px;
+}
+
+.gameButton1, .gameButton2 {
+    color: #27C383;
+    background-color: #FFF;
+    border: 1.5px solid #27C383;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gameButton1 {
+    width: 164px;
+    height: 52px;
+}
+
+.gameButton2 {
+    width: 135px;
+    height: 52px;
+}
+
+.cartBtn {
+    width: 209px;
+    height: 52px;
+    background-color: #27C383;
+    color: #fff;
+    border: 1.5px solid #27C383;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+hr {
+    border-top: 2px solid #EBEBEB;
+}
+
+.footer {
+    padding-top: 20px;
+    font-size: 10px;
+    text-align: center;
+    align-self: flex-end;
+    font-weight: lighter;
+    padding: 20px;
+}
+
+
