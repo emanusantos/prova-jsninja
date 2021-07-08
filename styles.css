@@ -53,6 +53,10 @@ ul li h1 {
     line-height: 20px;
 }
 
+.for {
+    font-weight: normal;
+}
+
 .newBet {
     font-size: 24px;
     padding: 30px 0;
@@ -167,6 +171,11 @@ ul li h1 {
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
+}
+
+.gameButton1:hover, .gameButton2:hover {
+    background-color: #27C383;
+    color: #Fff;
 }
 
 .gameButton1 {
