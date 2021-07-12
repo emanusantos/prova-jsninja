@@ -32,17 +32,23 @@
             <div class="numbersArea" data-js="numbersArea"></div>
             <div class="funcButtons">
                 <div class="gameButtons">
-                    <button class="gameButton1">Complete game</button>
-                    <button class="gameButton2">Clear game</button>
+                    <button class="gameButton1" data-js="complete">Complete game</button>
+                    <button class="gameButton2" data-js="clear">Clear game</button>
                 </div>
                 <div>
-                    <button class="cartBtn">Add to cart</button>
+                    <button class="addCart" data-js="addCart">Add to cart</button>
                 </div>
             </div>
         </div>
         <div class="cartContent">
             <h3>CART</h3>
-            <button class="saveCart"><i class="fas fa-shopping-cart"></i>Save</button>
+            <h4 data-js="empty" style="padding: 25px; color: #E3E3E3; text-align: center; font-style: italic;">Carrinho vazio</h4>
+            <div class="cartItem" data-js="cartarea"></div>
+            <h3>CART <span data-js="total"></span></h3>
+            <div class="btnArea">
+                <button class="saveCart"><i class="fas fa-shopping-cart"></i><strong>Save</strong></button>
+            </div>
+            
         </div>
     </div>
     <hr />
