@@ -32,13 +32,16 @@ ul li {
     justify-content: space-around;
     align-items: center;
     gap: 48px;
-    cursor: pointer;
 }
 
 
 ul li h1 {
     font-size: 44px;
     border-radius: 6px;
+}
+
+ul li h1, ul li h4 {
+    cursor: pointer;
 }
 
 .mainContent {
@@ -264,6 +267,7 @@ ul li h1 {
     font-style: italic;
     color: #27C383;
     border: none;
+    cursor: pointer;
 }
 
 .btnArea {

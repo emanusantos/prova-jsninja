@@ -8,6 +8,7 @@ const app = (function () {
 
 
     return {
+        // Initiate the main method
         init: function init() {
             this.gamesInfo();
         },
@@ -33,6 +34,7 @@ const app = (function () {
             app.pushButtons();
             app.pushNumbers(50);
             app.updateDataSet();
+            document.querySelector('[data-js="total"]').textContent = ` TOTAL: R$ 0.00`;
         },
 
         // Remove the previous numbers element when a new game is selected
@@ -134,7 +136,7 @@ const app = (function () {
             });
         },
 
-        // 
+        // De-select number (remove from the choseNumbers array)
         removeNumber: function removeNumber(choseNumbers, currentNumber) {
             let res = choseNumbers.filter((number) => {
                 return number != currentNumber;
@@ -202,7 +204,7 @@ const app = (function () {
             app.setTotal();
 
             formattedNumbers = app.formatNumbers();
-            cartStore.push({ numbers: formattedNumbers, type: currentGame.type, price: currentGame.price });
+            cartStore.push({ id: app.generateRandomString(), price: currentGame.price });
             app.newCartItem(formattedNumbers);
             app.clearGame();
         },
@@ -212,7 +214,7 @@ const app = (function () {
             let display = '';
             choseNumbers.sort((a,b) => a - b).forEach(function (item, index) {
                 if (index !== choseNumbers.length - 1)
-                    display += item + ', '
+                    display += `${item}, `
                 else {
                     display += item
                 }
@@ -220,6 +222,7 @@ const app = (function () {
             return display;
         },
 
+        // Create the formatted elements inside the cart
         newCartItem: function newCartItem(formattedNumbers) {
             let empty = document.querySelector('[data-js="empty"]');
             let cart = document.querySelector('[data-js="cartarea"]');
@@ -244,6 +247,14 @@ const app = (function () {
             cart.appendChild(cartAreaItem);
         },
 
+        // Remove item from the cart
+        deleteItem: function deleteItem(item) {
+            item.remove();
+            total -= currentGame.price;
+            app.setTotal();
+        },
+
+        // Update the total amount of the cart
         setTotal: function setTotal() {
             document.querySelector('[data-js="total"]').textContent = ` TOTAL: R$ ${total.toFixed(2).replace('.', ',')}`;
         },
@@ -274,11 +285,12 @@ const app = (function () {
             };
 
             if (dataset.js === 'delete') {
-
+                app.deleteItem(event.target.parentElement);
             };
         })
         },
 
+        // Check if the XMLHttpRequest is completed succesfully 
         isReady: function isReady() {
             return this.readyState === 4 && this.status === 200;
         },
