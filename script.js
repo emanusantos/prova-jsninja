@@ -204,7 +204,7 @@ const app = (function () {
             app.setTotal();
 
             formattedNumbers = app.formatNumbers();
-            cartStore.push({ id: app.generateRandomString(), price: currentGame.price });
+            cartStore.push({ numbers: formattedNumbers, price: currentGame.price })
             app.newCartItem(formattedNumbers);
             app.clearGame();
         },
@@ -259,6 +259,15 @@ const app = (function () {
             document.querySelector('[data-js="total"]').textContent = ` TOTAL: R$ ${total.toFixed(2).replace('.', ',')}`;
         },
 
+        // Saves the cart
+        saveCart: function saveCart() {
+            if (!cartStore[0].price) {
+                return alert('Carrinho vazio!');
+            };
+
+            return alert('Carrinho salvo!');
+        },
+
         // Use the dataset to manipulate DOM properties
         updateDataSet: function updateDataSet() {
             document.addEventListener('click', function (event) {
@@ -287,6 +296,10 @@ const app = (function () {
             if (dataset.js === 'delete') {
                 app.deleteItem(event.target.parentElement);
             };
+
+            if (dataset.js === 'saveCart') {
+                app.saveCart();
+            }
         })
         },
 
