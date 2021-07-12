@@ -26,6 +26,15 @@
       "max-number": 5,
       "color": "#F79C31",
       "min-cart-value": 30
+    },
+    {
+      "type": "Teste",
+      "description": "Descrição teste",
+      "range": 20,
+      "price": 6,
+      "max-number": 5,
+      "color": "#FF0000",
+      "min-cart-value": 30
     }
   ]
 }

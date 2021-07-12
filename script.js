@@ -49,7 +49,7 @@ const app = (function () {
         pushButtons: function pushButtons() {
             let buttonsDiv = document.querySelector('[data-js="buttonsArea"]');
 
-            gamesState.forEach((button) => {buttonsDiv.insertAdjacentHTML('afterbegin', 
+            gamesState.forEach((button) => {buttonsDiv.insertAdjacentHTML('beforebegin', 
             `<button class='${button.type}' value="${button.type}" data-js="buttonType" data-selected="false">${button.type}</button>`)})
         },
 
