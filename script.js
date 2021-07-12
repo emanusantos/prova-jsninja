@@ -160,7 +160,7 @@ const app = (function () {
             })[0];
 
             if (choseNumbers.length >= game['max-number']) {
-                return alert('Jogo já está completo')
+                return alert('Jogo já está completo');
             }
 
             app.randomCard(game['max-number'] - choseNumbers.length, game.range);
@@ -170,20 +170,22 @@ const app = (function () {
         // Randomize the numbers and push them to choseNumbers array
         randomCard: function randomCard(left, range) {
             for (let i = 1; i <= left; i++) {
-                let number = Math.ceil(Math.random() * range)
+                let number = Math.ceil(Math.random() * range);
 
                 if (app.numChosen(choseNumbers, number)) {
-                    i--
+                    i--;
                 } else {
-                    choseNumbers.push(number)
+                    choseNumbers.push(number);
                 }
             }
         },
 
         // Clears the selected numbers
         clearGame: function clearGame() {
-            if (choseNumbers.length === 0)
-            return alert('Nenhum número selecionado')
+            if (choseNumbers.length === 0) {
+                return alert('Nenhum número selecionado');
+            }
+            
 
             let selected = document.querySelectorAll('.number-selected')
             selected.forEach((number) => {
@@ -200,7 +202,7 @@ const app = (function () {
                 return alert(`Você precisa selecionar mais ${(currentGame['max-number'] - choseNumbers.length)} números!`);
             }
 
-            total += currentGame.price
+            total += currentGame.price;
             app.setTotal();
 
             formattedNumbers = app.formatNumbers();
@@ -213,9 +215,9 @@ const app = (function () {
         formatNumbers: function formatNumbers() {
             let display = '';
             choseNumbers.sort((a,b) => a - b).forEach(function (item, index) {
-                if (index !== choseNumbers.length - 1)
+                if (index !== choseNumbers.length - 1) {
                     display += `${item}, `
-                else {
+                } else {
                     display += item
                 }
             })
