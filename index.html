@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./icons/arrow-right-solid.svg">
     <link rel="stylesheet" href="styles.css">
     <title>TGL</title>
 </head>
@@ -36,15 +37,17 @@
                     <button class="gameButton2" data-js="clear">Clear game</button>
                 </div>
                 <div>
-                    <button class="addCart" data-js="addCart">Add to cart</button>
+                    <button class="addCart" data-js="addCart"><img class="cartIcon" src="./icons/shopping-cart-solid.svg">Add to cart</button>
                 </div>
             </div>
         </div>
         <div class="cartContent">
-            <h3>CART</h3>
-            <h4 data-js="empty" style="padding: 25px; color: #E3E3E3; text-align: center; font-style: italic;">Carrinho vazio</h4>
-            <div class="cartItem" data-js="cartarea"></div>
-            <h3>CART <span data-js="total"></span></h3>
+            <div class="padding">
+                <h3>CART</h3>
+                <h4 data-js="empty" style="padding: 25px; color: #E3E3E3; text-align: center; font-style: italic;">Carrinho vazio</h4>
+                <div class="cartItem" data-js="cartarea"></div>
+                <h3>CART <span data-js="total" style="font-style: normal; font-weight: lighter;"></span></h3>
+            </div>
             <div class="btnArea">
                 <button class="saveCart"><i class="fas fa-shopping-cart"></i><strong>Save</strong></button>
             </div>

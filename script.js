@@ -142,6 +142,7 @@ const app = (function () {
             return res;
         },
 
+        // Update the background color of the selected numbers
         highlightNumbers: function highlightNumbers() {
             choseNumbers.map((number) => {
                 let element = document.querySelector(`[data-number="${number}"]`);
@@ -149,6 +150,8 @@ const app = (function () {
             })
         },
 
+        /* Check and trigger the randomCard function to get random numbers and auto-complete a game 
+        based on current game range */ 
         completeGame: function completeGame() {
             let game = gamesState.filter((game) => {
                 return game.type === currentGame.type;
@@ -162,6 +165,7 @@ const app = (function () {
             app.highlightNumbers();
         },
 
+        // Randomize the numbers and push them to choseNumbers array
         randomCard: function randomCard(left, range) {
             for (let i = 1; i <= left; i++) {
                 let number = Math.ceil(Math.random() * range)
@@ -174,6 +178,7 @@ const app = (function () {
             }
         },
 
+        // Clears the selected numbers
         clearGame: function clearGame() {
             if (choseNumbers.length === 0)
             return alert('Nenhum número selecionado')
@@ -186,14 +191,15 @@ const app = (function () {
             choseNumbers = [];
         },
 
+        // Add items to the cart
         addItem: function addItem() {
             let formattedNumbers = '';
             if (choseNumbers.length < currentGame['max-number']) {
                 return alert(`Você precisa selecionar mais ${(currentGame['max-number'] - choseNumbers.length)} números!`);
             }
 
-            //total += currentGame.price
-            //setTotal()
+            total += currentGame.price
+            app.setTotal();
 
             formattedNumbers = app.formatNumbers();
             cartStore.push({ numbers: formattedNumbers, type: currentGame.type, price: currentGame.price });
@@ -201,6 +207,7 @@ const app = (function () {
             app.clearGame();
         },
 
+        // Format the selected numbers to display on cart
         formatNumbers: function formatNumbers() {
             let display = '';
             choseNumbers.sort((a,b) => a - b).forEach(function (item, index) {
@@ -224,18 +231,21 @@ const app = (function () {
             let cartAreaItem = document.createElement('div');
             cartAreaItem.classList.add('cartAreaItem');
             cartAreaItem.innerHTML = `
-            <div class="coloredBar"></div>
+            <img data-js="delete" src="./icons/trash-alt-regular.svg"/>
+            <div class="coloredBar" style="background-color: ${currentGame.color}"></div>
             <div class="betCard">
                 <p class="numbersBet">${formattedNumbers}</p>
-                <p>${currentGame.type}</p>
-                <label class="priceBet"> R$ ${currentGame.price.toFixed(2).replace('.', ',')}</label>
+                <div class="nameAndPrice">
+                    <p style="color: ${currentGame.color}; font-weight: bold; font-style: italic;">${currentGame.type}</p>
+                    <p class="priceBet"> R$ ${currentGame.price.toFixed(2).replace('.', ',')}</p>
+                </div>
             </div>`
 
             cart.appendChild(cartAreaItem);
         },
 
         setTotal: function setTotal() {
-            doc.querySelector('[data-js="total"]').textContent = ' TOTAL R$' + total.toFixed(2).replace('.', ',')
+            document.querySelector('[data-js="total"]').textContent = ` TOTAL: R$ ${total.toFixed(2).replace('.', ',')}`;
         },
 
         // Use the dataset to manipulate DOM properties
@@ -249,19 +259,23 @@ const app = (function () {
 
             if (dataset.number) {
                 app.selectNumber(dataset.number);
-            }
+            };
 
             if (dataset.js === 'complete') {
                 app.completeGame();
-            }
+            };
 
             if (dataset.js === 'clear') {
                 app.clearGame();
-            }
+            };
 
             if (dataset.js === 'addCart') {
                 app.addItem();
-            }
+            };
+
+            if (dataset.js === 'delete') {
+
+            };
         })
         },
 
